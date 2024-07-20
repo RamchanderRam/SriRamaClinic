@@ -1,0 +1,59 @@
+﻿@model MedicalCenter.Services.ViewModels.PRos.PRo;
+@{
+    ViewBag.Title = "Add Pro s";
+}
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <h2 class="heading-margin text-center">@ViewBag.Title</h2>
+
+        <form method="post" class="mx-auto half-width" asp-controller="Doctors" asp-action="AddPRos" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="HospitalName  "></label>
+                <input asp-for="HospitalName " class="form-control">
+                <span asp-validation-for="HospitalName " class="small text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Location "></label>
+                <textarea asp-for="Location " class="form-control" ></textarea>
+                <span asp-validation-for="Location " class="small text-danger"></span>
+            </div>
+
+           @* <div class="form-group">
+                <label asp-for="AppointmentDate  "></label>
+                <textarea asp-for="AppointmentDate  " class="form-control" rows="15"></textarea>
+                <span asp-validation-for="AppointmentDate  " class="small text-danger"></span>
+            </div>*@
+
+            <div class="form-group">
+                <label asp-for="AppointmentDate"></label>
+                <input asp-for="AppointmentDate" class="form-control" type="datetime-local" />
+                <span asp-validation-for="AppointmentDate" class="small text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Reason  "></label>
+                <textarea asp-for="Reason  " class="form-control" ></textarea>
+                <span asp-validation-for="Reason  " class="small text-danger"></span>
+            </div>
+
+           
+
+            @*<div class="form-group">
+                <label asp-for="Image"></label>
+                <input asp-for="Image" class="form-control" type="file">
+                <span asp-validation-for="Image" class="small text-danger"></span>
+            </div>*@
+
+
+            <input class="btn btn-success mt-3 text-center" type="submit" value="Add" />
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

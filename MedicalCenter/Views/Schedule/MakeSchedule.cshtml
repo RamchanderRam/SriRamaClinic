@@ -1,0 +1,32 @@
+﻿@model InputScheduleFormModel
+
+<div class="d-flex row">
+
+    <partial name="_SideNavBarDoctors" />
+
+
+    <form class="form-check col-md-5 offset-md-2" asp-controller="Schedule" asp-action="MakeSchedule" method="post">
+        <h2 class="heading-margin text-center mb-4">Add Free Hour</h2>
+        <div class="form-group d-flex flex-column justify-content-center">
+            <label asp-for="Date"></label>
+          
+            <input type="datetime-local" asp-for="Date" />
+            <span asp-validation-for="Date" class="small text-danger"></span>
+        </div>
+
+        @*<button type="submit" class="btn btn-success text-center">Add Hour</button>*@
+
+        <div class="d-flex justify-content-center">
+            <input class="btn btn-style-one mt-3 text-center" type="submit" value="Add Hour" />
+        </div>
+    </form>
+
+    <div>
+
+    </div>
+
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

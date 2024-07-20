@@ -1,0 +1,30 @@
+﻿@model ICollection<AllImagesToApproveViewModel>
+
+<h1 class="text-center">All images to approve</h1>
+
+<div class="d-flex">
+    <partial name="_SideBarNavigation" />
+
+    <table class="table table-success table-hover table-striped">
+
+        <tr>
+            <th>Image</th>
+            <th>Created</th>
+            <th>Doctor's name</th>
+            <th>Option</th>
+        </tr>
+
+        @foreach (var img in this.Model)
+        {
+            <tr>
+                <td><img width="150px" height="150px" src="~/images/@img.Path" /></td>
+                <td>@img.CreatedOn</td>
+                <td>@img.DoctorName</td>
+                <td>
+                    <a class="btn btn-success" asp-controller="Admin" asp-action="Approve" asp-route-id="@img.Id">Approve</a>
+                    <a class="btn btn-danger" asp-controller="Admin" asp-action="Delete" asp-route-id="@img.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

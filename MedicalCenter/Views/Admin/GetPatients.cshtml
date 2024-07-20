@@ -1,0 +1,39 @@
+﻿@model PatientProfileViewModel
+
+<link rel="stylesheet" href="~/css/customcss.css" />
+
+<div class="row d-flex justify-content-between ">
+    <div class="d-flex">
+        <partial name="_SideBarNavigation" />
+
+    <div class="card text-center text-white patient-card offset-1 offset-md-0">
+        <div class="card-header">
+            Patient's EGN - @this.Model.EGN
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-white">@this.Model.FullName</h5>
+            <p class="card-text text-white">Country - @this.Model.Country</p>
+            <p class="card-text text-white">Address - @this.Model.Town, @this.Model.Address</p>
+            @if (this.User.IsInRole("Doctor"))
+            {
+                <a asp-controller="BloodTests" asp-action="ViewBloodTests" asp-route-id="@this.Model.Id" class="btn btn-light">View Tests</a>
+                <a asp-controller="BloodTests" asp-action="SendBloodTests" asp-route-id="@this.Model.Id" class="btn btn-light">Make Tests</a>
+                <a asp-controller="Patients" asp-action="ViewRecord" asp-route-id="@this.Model.Id" class="btn btn-light">View Medical Record</a>
+                <a asp-controller="Diagnoses" asp-action="WriteDiagnose" asp-route-id="@this.Model.Id" class="btn btn-light">Write Diagnose</a>
+            }
+
+            @if (this.User.IsInRole("Laboratory Assistant"))
+            {
+                <a asp-controller="BloodTests" asp-action="AllBloodTests" asp-route-id="@this.Model.Id" class="btn btn-light btn-style-one">Fill Tests</a>
+            }
+
+        </div>
+        <div class="card-footer text-white">
+            Age - @this.Model.Age
+        </div>
+    </div>
+
+    <div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ListAllParametersViewModel>
+
+<div class="row">
+
+    <partial name="_SideNavBarDoctors" />
+
+    <div class="col-md-4 offset-md-3">
+        <div >
+            <form class="mx-auto half-width " asp-controller="BloodTests" asp-action="FillTest" asp-route-id="@ViewBag.TestId" method="post">
+                <div class="form-group">
+                    @foreach (var parameter in this.Model)
+                    {
+                        <label>@parameter.Name</label>
+                        <input type="number" step="0.01" class="form-control" id="@parameter.Id" name="parameter">
+                        <br />
+                    }
+                </div>
+                <div class="button-holder d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

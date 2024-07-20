@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>@ViewData["Title"] Sri Rama Medical Center</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css"/>
+    <link rel="stylesheet" href="~/css/style.css"/>
+
+
+</head>
+<body class="bg-light">
+
+    <!--Header Upper-->
+    <section class="header-uper">
+        <div class="container clearfix">
+            <div class="logo">
+                <figure>
+                    <a href="/">
+                        <img src="/images/Sri RamaMedicalCenter.png" alt="" width="130">
+                    </a>
+                </figure>
+            </div>
+            <div class="right-side">
+                <ul class="contact-info">
+                    <li class="item">
+                        <div class="icon-box">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <strong>Email</strong>
+                        <br>
+                        <a href="#">
+                            <span>ravidas3545@gmail.com</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <div class="icon-box">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <strong>Call Now</strong>
+                        <br>
+                        <span>+ 91 9951620139</span>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+    <!--Header Upper-->
+
+
+    <header id="topheader" class="text-white">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3" id="topheader">
+            <div class="container">
+
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Sri Rama Medical Center</a>
+                <button class="navbar-toggler bg-light mb-5" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon bg-transparent"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 justify-content-around">
+
+                        @if (this.User.IsInRole("Doctor") || this.User.IsInRole("Laboratory Assistant"))
+                        {
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Doctors" asp-action="ViewProfile">Doctor's Profile</a>
+                            </li>
+                        }
+
+                        @if (this.User.IsInRole("Patient"))
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Patients" asp-action="ViewProfile">Patient's Profile</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Patients" asp-action="ViewRecord">Medical Record</a>
+                            </li>
+                        }
+
+
+                        @if (this.User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="Administrator" asp-controller="Administrator" asp-action="Overview">Admin Panel</a>
+                            </li>
+                        }
+                        @if (this.User.IsInRole("Doctor"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Doctors" asp-action="Manage">Manage</a>
+                            </li>
+                        }
+                        @if (this.User.IsInRole("Laboratory Assistant"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Doctors" asp-action="Tests">Tests</a>
+                            </li>
+                        }
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Doctors" asp-action="AllDoctors"> Make Dr Appointment</a>
+                        </li>
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <div class="container mr-md-4 ml-md-4">
+        <main role="main" class="pb-3">
+
+            @if (TempData.ContainsKey("Error"))
+            {
+                <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                    <strong>@TempData["Error"]</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.UtcNow - Sri Rama Medical Center
+        </div>
+    </footer>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

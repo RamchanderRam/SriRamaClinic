@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ResultsViewModel>
+
+<div class="row d-flex">
+
+    <partial name="_SideNavBarDoctors" />
+
+    @if (!this.Model.Any())
+    {
+        <h4>There are no results</h4>
+    }
+
+    <table class="table table-info table-hover table-striped table-bordered  text-center col-md-9 mt-md-0 mt-5">
+
+        <tr>
+
+            <th>Prameter Name</th>
+            <th>Value</th>
+            <th>Min Value</th>
+            <th>Max Value</th>
+            <th>High / Low</th>
+        </tr>
+
+        @foreach (var parameter in this.Model)
+        {
+            <tr>
+
+                <td>@parameter.Name</td>
+                <td>@parameter.Value</td>
+                <td>@parameter.MinValue</td>
+                <td>@parameter.MaxValue</td>
+                <td>@parameter.HighLow</td>
+            </tr>
+        }
+    </table>
+
+</div>

@@ -1,0 +1,27 @@
+﻿@model SingleDoctorViewModel
+
+<div class="row offset-md-2">
+    <div class="card col-md-10" style="max-width: 800px;">
+        <div class="row no-gutters">
+            <div class="col-sm-5" style="background: #868e96;">
+                @if (String.IsNullOrEmpty(this.Model.ImagePath) || this.Model.IsImageApproved == false)
+                {
+                    <img src="/images/unknowndoctor.jpg" class="card-img-top h-100" alt="...">
+                }
+                else
+                {
+                    <img src="/images/@this.Model.ImagePath" class="card-img-top h-100" alt="...">
+                }
+            </div>
+            <div class="col-sm-7">
+                <div class="card-body">
+                    <h5 class="card-title">@this.Model.FullName - @this.Model.Specialty</h5>
+                    <p class="card-text">@this.Model.Biography</p>
+
+                </div>
+                
+                <a href="/Schedule/MakeAppointment/@this.Model.Id" class="btn btn-primary stretched-link ml-4">Make appointment</a>
+            </div>
+        </div>
+    </div>
+</div>

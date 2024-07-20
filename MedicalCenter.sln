@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalCenter", "MedicalCenter\MedicalCenter.csproj", "{709DD95B-25CA-4D5B-8309-78A68BB70361}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7EBC3CA5-E298-4222-B0AD-6C1EFB84D5B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{D42495DB-C592-47A2-AEBC-B11D42F9099C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{ED3267F3-ADFB-4909-8796-5DDB1C37E6A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalCenter.Data", "MedicalCenter.Data\MedicalCenter.Data.csproj", "{20DE7D81-65D1-42DF-A5E0-BB68C750E886}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalCenter.Services", "MedicalCenter.Services\MedicalCenter.Services.csproj", "{75B277AC-F252-48C9-8737-9F32BF4B14F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalCenter.Mapping", "MedicalCenter.Mapping\MedicalCenter.Mapping.csproj", "{C7248AE9-F87A-407B-A658-F4BAB82E95E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C3808339-AE77-45F3-9041-D8C5EC35AEF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalCenter.Tests", "MedicalCenter.Tests\MedicalCenter.Tests.csproj", "{ED40B094-68FF-488F-9C96-72E4C11D6C3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{709DD95B-25CA-4D5B-8309-78A68BB70361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709DD95B-25CA-4D5B-8309-78A68BB70361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709DD95B-25CA-4D5B-8309-78A68BB70361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709DD95B-25CA-4D5B-8309-78A68BB70361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20DE7D81-65D1-42DF-A5E0-BB68C750E886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20DE7D81-65D1-42DF-A5E0-BB68C750E886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20DE7D81-65D1-42DF-A5E0-BB68C750E886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20DE7D81-65D1-42DF-A5E0-BB68C750E886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75B277AC-F252-48C9-8737-9F32BF4B14F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B277AC-F252-48C9-8737-9F32BF4B14F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75B277AC-F252-48C9-8737-9F32BF4B14F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B277AC-F252-48C9-8737-9F32BF4B14F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7248AE9-F87A-407B-A658-F4BAB82E95E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7248AE9-F87A-407B-A658-F4BAB82E95E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7248AE9-F87A-407B-A658-F4BAB82E95E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7248AE9-F87A-407B-A658-F4BAB82E95E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED40B094-68FF-488F-9C96-72E4C11D6C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED40B094-68FF-488F-9C96-72E4C11D6C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED40B094-68FF-488F-9C96-72E4C11D6C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED40B094-68FF-488F-9C96-72E4C11D6C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{709DD95B-25CA-4D5B-8309-78A68BB70361} = {D42495DB-C592-47A2-AEBC-B11D42F9099C}
+		{20DE7D81-65D1-42DF-A5E0-BB68C750E886} = {7EBC3CA5-E298-4222-B0AD-6C1EFB84D5B4}
+		{75B277AC-F252-48C9-8737-9F32BF4B14F0} = {ED3267F3-ADFB-4909-8796-5DDB1C37E6A1}
+		{C7248AE9-F87A-407B-A658-F4BAB82E95E8} = {ED3267F3-ADFB-4909-8796-5DDB1C37E6A1}
+		{ED40B094-68FF-488F-9C96-72E4C11D6C3F} = {C3808339-AE77-45F3-9041-D8C5EC35AEF8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C09A0AF5-291C-4CF0-8E79-816DA6A90FB0}
+	EndGlobalSection
+EndGlobal

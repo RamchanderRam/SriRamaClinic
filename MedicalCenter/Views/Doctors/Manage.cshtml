@@ -1,0 +1,48 @@
+﻿@model ICollection<ListAllSchedulesViewModel>
+
+<link rel="stylesheet" href="~/css/customcss.css"/>    
+
+<div class="row d-flex justify-content-between" id="manage-div">
+
+    <partial name="_SideNavBarDoctors" />
+
+    @if (!this.Model.Any())
+    {
+        <h4 class="display-4 text-danger offset-md-2 offset-2">There is no shedules</h4>
+    }
+
+    <div class="row" id="inner-manage-div">
+
+        @foreach (var day in this.Model)
+        {
+            <div class="col-md-3 col-6" >
+
+                <div class="d-flex flex-column align-items-center" >
+
+                    <h6 class="mb-3 text-center">@day.NameOfDay</h6>
+
+                    @foreach (var h in day.Hours)
+                    {
+                        @if (!h.IsFree)
+                        {
+                            <a asp-controller="Schedule" asp-action="SavedHour" asp-route-ID="@h.HourId" class="btn btn-secondary" id="hour-block">@h.Hour</a>
+                            <br />
+                        }
+                        else
+                        {
+                            <a asp-controller="Patient" asp-action="SaveHour" asp-route-ID="@h.HourId" class="btn btn-success disabled" id="hour-block">@h.Hour</a>
+                            <br />
+                        }
+
+                    }
+                </div>
+            </div>
+
+        }
+    </div>
+
+    <div>
+
+    </div>
+
+</div>

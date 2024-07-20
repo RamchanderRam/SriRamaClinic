@@ -1,0 +1,53 @@
+﻿@model MedicalCenter.Services.ViewModels.Admin.CreateDoctorFormModel
+
+@{
+    ViewBag.Title = "Create Doctor";
+}
+<div class="row">
+
+    <partial name="_SideBarNavigation" />
+
+    <div class="col-md-9">
+        <div class="col-sm-12 offset-lg-2 col-md-8 offset-xl-3 col-xl-6">
+            <h2 class="heading-margin text-center">@ViewBag.Title</h2>
+
+            <form class="mx-auto half-width" asp-area="Administrator" asp-controller="Doctors" asp-action="CreateDoctor" method="post">
+
+
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" type="text" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" type="text" class="form-control">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" type="text" class="form-control">
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" type="text" class="form-control">
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="button-holder  d-flex justify-content-center">
+                    <button type="submit" class="btn btn-style-one">Create</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

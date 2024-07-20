@@ -1,0 +1,15 @@
+﻿<link rel="stylesheet" href="~/css/customcss.css" />
+
+<div class="col-md-2 mr-4">
+    <div class="nav flex-column nav-pills me-3 p-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        @if (this.User.IsInRole("Doctor"))
+        {
+            <a class="nav-link btn-style-one mb-2" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" asp-controller="Doctors" asp-action="Manage">Schedules</a>
+            <a class="nav-link btn-style-one mb-2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" asp-controller="Schedule" asp-action="MakeSchedule">Make Schedule</a>
+            <a class="nav-link btn-style-one mb-3" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" asp-controller="Doctors" asp-action="AllPatients"> Get All Patients </a>
+
+        }
+
+        <a class="nav-link btn-style-one" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" asp-controller="Doctors" asp-action="FindPatientByEGN">Find Patient By EGN</a>
+    </div>
+</div>

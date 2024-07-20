@@ -1,0 +1,33 @@
+﻿@model ICollection<MedicalCenter.Services.ViewModels.Admin.AllImagesToApproveViewModel>
+
+<link rel="stylesheet" href="~/css/customcss.css"/>
+
+<div class="row">
+
+    <partial name="_SideBarNavigation" />
+
+    <h1 class="text-center offset-md-3">All images to approve</h1>
+
+    <table class="col-sm-8 offset-md-3 table table-success table-hover table-striped table-bordered table-responsive-sm  text-center images-table">
+
+        <tr>
+            <th>Image</th>
+            <th>Created</th>
+            <th>Doctor's name</th>
+            <th>Option</th>
+        </tr>
+
+        @foreach (var img in this.Model)
+        {
+            <tr>
+                <td><img width="150px" height="150px" src="~/images/@img.Path" /></td>
+                <td>@img.CreatedOn</td>
+                <td>@img.DoctorName</td>
+                <td>
+                    <a class="btn btn-success" asp-area="Administrator" asp-controller="Images" asp-action="Approve" asp-route-id="@img.Id">Approve</a>
+                    <a class="btn btn-danger" asp-area="Administrator" asp-controller="Images" asp-action="Delete" asp-route-id="@img.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

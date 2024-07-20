@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AllBloodTestsViewModel>
+
+<div class="row d-flex justify-content-around">
+
+    <partial name="_SideNavBarDoctors" />
+
+    <div class="col-md-9">
+
+        @if (!this.Model.Any())
+        {
+            <h4 class="offset-md-2 display-4 text-danger">There are no blood tests!</h4>
+        }
+        else
+        {
+            <table class="table table-info table-hover table-striped table-bordered text-center col-md-9 col-sm-10 offset-md-2 mt-md-0 mt-5">
+
+                <tr>
+
+                    <th>Created</th>
+                    <th>Sending Doctor</th>
+                </tr>
+
+                @foreach (var test in this.Model)
+                {
+                    <tr>
+
+                        <td><a asp-controller="BloodTests" asp-action="SeeResults" asp-route-id="@test.Id">@test.CreatedOn</a></td>
+                        <td>@test.DoctorFullName</td>
+                    </tr>
+                }
+            </table>
+        }
+
+    </div>
+
+
+</div>

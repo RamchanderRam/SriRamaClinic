@@ -1,0 +1,25 @@
+﻿@model SaveHourFormModel
+<div class="row">
+
+    @*asp-route-id="@this.ViewBag.HourId"*@
+    <form class="mx-auto half-width col-md-6" asp-controller="Schedule" asp-action="MakeAppointment"  method="post">
+        <input type="hidden" name="id" asp-route-id="@this.ViewBag.HourId" />
+
+
+        <div class="form-group">
+            <label asp-for="Reason">Reason</label>
+            <textarea asp-for="Reason" type="text" class="form-control"></textarea>
+            <span asp-validation-for="Reason" class="text-danger"></span>
+        </div>
+
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn btn-info">Save Hour</button>
+        </div>
+
+    </form>
+
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<PatientProfileViewModel>
+
+<link rel="stylesheet" href="~/css/customcss.css" />
+
+<!--team section-->
+<section class="team-section section text-center">
+    <div class="container mb-5">
+        <div class="section-title text-center mb-5">
+            <h3>
+                <span>All Patients</span>
+            </h3>
+
+            <form class="form-check col-md-6 offset-md-3 offet-sm-1 col-sm-12 mt-5 search-doc-form" method="get" asp-controller="Patients" asp-action="SearchByName">
+                <input type="text" name="search" placeholder="Search by name" class="form-control" />
+                <button type="submit" class="btn btn-main search-btn">Search</button>
+            </form>
+        </div>
+        <div class="row">
+            @foreach (var doc in Model)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12 single-doc" style="display:none">
+                    <div class="contents text-center">
+                        <h4>@doc.FullName</h4>
+                        <table class="table table-info table-hover table-striped table-bordered table-responsive-sm text-center">
+                            <thead>
+                                <tr>
+                                    @*<th>Patient Id</th>*@
+                                    <th>FullName</th>
+                                    <th>Country</th>
+                                    <th>Town</th>
+                                    <th>Address</th>
+                                    <th>EGN</th>
+                                    <th>DateOfBirth</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    @*<td>@doc.Id</td>*@
+                                    <td>@doc.FullName</td>
+                                    <td>@doc.Country</td>
+                                    <td>@doc.Town</td>
+                                    <td>@doc.Address</td>
+                                    <td>@doc.EGN</td>
+                                    <td>@doc.DateOfBirth</td>
+                                    <td>@doc.Age</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        @*<a asp-controller="Doctors" asp-action="ViewDoctor" asp-route-id="@doc.Id" class="btn btn-main">View</a>
+                        <a asp-controller="Schedule" asp-action="MakeAppointment" asp-route-id="@doc.Id" class="btn btn-main">Make Appointment</a>*@
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <button class="btn btn-style-one view-more-doc mt-5">View More</button>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $(".single-doc").slice(0, 3).show();
+        $(".view-more-doc").on("click", function () {
+            $(".single-doc:hidden").slice(0, 3).slideDown();
+        });
+        $(".search-btn").on("click", function () {
+            $(".search-doc-form").toggle();
+        });
+    });
+</script>

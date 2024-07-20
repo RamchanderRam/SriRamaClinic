@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ListAllSchedulesViewModel>
+
+<div class="row offset-md-2">
+
+    @if (!this.Model.Any())
+    {
+        <h4 class="offset-md-0 display-4 text-danger">There are no schedules for this doctor!</h4>
+    }
+
+    @if (this.Model.Any())
+    {
+        <h2 class="mb-5 ">All available free hours for Dr. @ViewBag.DoctorFullName</h2>
+    }
+
+    @foreach (var day in this.Model)
+    {
+
+        <div class="col-md-3  border-right">
+            <div class="d-flex flex-column">
+                <h6 class="mb-3 text-center">@day.NameOfDay</h6>
+
+                @foreach (var h in day.Hours)
+                {
+                    @if (!h.IsFree)
+                    {
+                        <a class="btn btn-danger disabled text-white">@h.Hour</a>
+                        <br />
+                    }
+                    else
+                    {
+                        <a asp-controller="Schedule" asp-action="MakeAppointment" asp-route-id="@h.HourId" class="btn btn-success">@h.Hour</a>
+                        <br />
+                    }
+
+                }
+            </div>
+        </div>
+    }
+
+
+</div>

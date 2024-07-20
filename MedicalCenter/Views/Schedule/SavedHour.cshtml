@@ -1,0 +1,14 @@
+﻿@model SavedHourInfoViewModel
+
+<div class="row">
+
+    <partial name="_SideNavBarDoctors" />
+
+    <div class="jumbotron">
+        <h1 class="display-4">@this.Model.Day - @this.Model.FreeHour</h1>
+        <h4 >Patient Name - @this.Model.PatientFullName</h4>
+        <hr class="my-4">
+        <p>Reason for visiting - @this.Model.Reason</p>
+    </div>
+
+</div>
