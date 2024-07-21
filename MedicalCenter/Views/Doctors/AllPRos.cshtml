@@ -23,38 +23,36 @@
         </div>
 
         <div class="row">
-            @foreach (var doc in Model)
-            {
-                <div class="col-md-12 col-sm-12 col-xs-12 single-doc mb-4">
-                    <div class="contents text-center">
-                        <table class="table table-info table-hover table-striped table-bordered table-responsive-sm text-center">
-                            <thead>
-                                <tr>
-                                    <th>Hospital Name</th>
-                                    <th>Location</th>
-                                    <th>DateTime</th>
-                                    <th>Reason</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>@doc.HospitalName</td>
-                                    <td>@doc.Location</td>
-                                    <td>@doc.AppointmentDate</td>
-                                    <td>@doc.Reason</td>
-                                    <td>
-                                        <form asp-action="DeletePro" method="post" onsubmit="return confirm('Are you sure you want to delete this PRo?');">
-                                            <input type="hidden" name="id" value="@doc.Id" />
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            }
+            <div class="col-12">
+                <table class="table table-info table-hover table-striped table-bordered table-responsive-sm text-center">
+                    <thead>
+                        <tr>
+                            <th>Hospital Name</th>
+                            <th>Location</th>
+                            <th>DateTime</th>
+                            <th>Reason</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var doc in Model)
+                        {
+                            <tr class="single-doc" style="display:none">
+                                <td>@doc.HospitalName</td>
+                                <td>@doc.Location</td>
+                                <td>@doc.AppointmentDate</td>
+                                <td>@doc.Reason</td>
+                                <td>
+                                    <form asp-action="DeletePro" method="post" onsubmit="return confirm('Are you sure you want to delete this PRo?');">
+                                        <input type="hidden" name="id" value="@doc.Id" />
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <button class="btn btn-style-one view-more-doc mt-5">View More</button>
